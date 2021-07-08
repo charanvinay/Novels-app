@@ -41,11 +41,24 @@ class _HomeState extends State<Home> {
   bool _loading = true;
   bool _visible = true;
 
+  final _controller = ScrollController();
+  bool _displaybackToTopButton = false;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getNovels();
+    _controller
+      ..addListener(() {
+        setState(() {
+          if (_controller.offset >= 400) {
+            _displaybackToTopButton = true;
+          } else {
+            _displaybackToTopButton = false;
+          }
+        });
+      });
   }
 
   getNovels() async {
@@ -125,6 +138,9 @@ class _HomeState extends State<Home> {
                 onChanged: (value) {
                   setState(
                     () {
+                      if (value == null) {
+                        _visible = true;
+                      }
                       filteredNovels = novels
                           .where((nov) => nov.name
                               .toLowerCase()
@@ -142,6 +158,7 @@ class _HomeState extends State<Home> {
             ),
             Expanded(
               child: SingleChildScrollView(
+                controller: _controller,
                 child: Container(
                   color: bgBlue,
                   child: Column(
@@ -226,7 +243,19 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
+        floatingActionButton: _displaybackToTopButton == false
+            ? null
+            : FloatingActionButton(
+                onPressed: scrollUp,
+                backgroundColor: bc6,
+                child: Icon(Icons.arrow_upward),
+              ),
       ),
     );
+  }
+
+  void scrollUp() {
+    _controller.animateTo(0,
+        duration: Duration(seconds: 1), curve: Curves.easeIn);
   }
 }
