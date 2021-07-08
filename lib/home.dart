@@ -221,7 +221,7 @@ class _HomeState extends State<Home> {
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 6.0,
                                     mainAxisSpacing: 4.0,
-                                    childAspectRatio: (width / (height / 1.5)),
+                                    childAspectRatio: (width / (height / 1.4)),
                                   ),
                                   itemBuilder:
                                       (BuildContext context, int index) {
