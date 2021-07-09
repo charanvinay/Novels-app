@@ -1,16 +1,8 @@
-# novels_app
+# Novels app
 
-A new Flutter project.
+This app is similar to amazon. Just implemented some basic UI of novels section with an api to fetch the novels
 
-## Getting Started
+## App Image
 
-This project is a starting point for a Flutter application.
+![novels](https://user-images.githubusercontent.com/71263421/125063359-01ea9380-e0cd-11eb-9776-19f46b39cc69.jpg)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
